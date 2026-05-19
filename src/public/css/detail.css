@@ -1,0 +1,169 @@
+.detail {
+    width: 90%;
+    margin: 80px auto;
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: 80px;
+}
+
+.detail-image img {
+    width: 500px;
+    height: 500px;
+
+    object-fit: cover;
+}
+
+.detail-content {
+    width: 600px;
+}
+
+.item-name {
+    font-size: 36px;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.brand {
+    font-size: 14px;
+
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 32px;
+
+    margin-bottom: 20px;
+}
+
+.price span {
+    font-size: 18px;
+}
+
+.reaction {
+    display: flex;
+    gap: 40px;
+
+    margin-bottom: 30px;
+}
+
+.reaction-box {
+    text-align: center;
+    font-size: 28px;
+}
+
+.purchase-btn {
+    display: block;
+
+    width: 100%;
+
+    background: #ff5a5f;
+    color: white;
+
+    text-align: center;
+
+    padding: 12px 0;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    margin-bottom: 40px;
+}
+
+.detail-content h2 {
+    font-size: 28px;
+
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.description {
+    line-height: 1.8;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.category-tag {
+    background: #d9d9d9;
+
+    padding: 3px 15px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+}
+
+.comment-user {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+.user-icon {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    background: #d9d9d9;
+}
+
+.comment {
+    background: #e5e5e5;
+
+    padding: 15px;
+
+    margin-bottom: 40px;
+}
+
+.comment-label {
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+
+    margin-bottom: 20px;
+}
+
+.comment-btn {
+    width: 100%;
+
+    border: none;
+
+    background: #ff5a5f;
+    color: white;
+
+    padding: 15px 0;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+}

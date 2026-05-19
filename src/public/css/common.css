@@ -1,0 +1,54 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background: #000;
+}
+
+.header__inner {
+    padding: 20px 15px;
+    max-width: 1230px;
+}
+
+.header-logo {
+    width: 300px;
+}
+
+.header-search {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    text-decoration: none;
+}
+
+.header-search input {
+    padding: 8px 160px 8px 20px;
+}
+
+.header-btn {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.logout-btn, .mypage-btn {
+    width: 90px;
+    background: #000;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.sell-btn {
+    padding: 6px 15px;
+    background: #fff;
+    color: #000;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}

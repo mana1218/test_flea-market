@@ -1,0 +1,45 @@
+.tab {
+    display: flex;
+    gap: 30px;
+    padding: 30px 90px 2px;
+    border-bottom: 1px solid #ccc;
+}
+
+.active, .mylist {
+    font-weight: bold;
+    padding: 0 15px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.active {
+    color: #f00;
+}
+
+.mylist {
+    color: #949593;
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 35px;
+}
+
+.card {
+    width: 230px;
+    margin: 10px;
+}
+
+.card img {
+    width: 230px;
+    height: 230px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.card p {
+    margin-top: 8px;
+    font-size: 18px;
+}

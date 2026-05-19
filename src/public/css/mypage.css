@@ -1,0 +1,79 @@
+.mypage {
+    padding: 30px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.profile__left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile__img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #ccc;
+}
+
+.profile__name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.edit-btn {
+    padding: 8px 16px;
+    border: 1px solid red;
+    color: red;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.tab {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    border-bottom: 2px solid #ddd;
+}
+
+.tab a {
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.tab a.active {
+    color: red;
+    border-bottom: 2px solid red;
+}
+
+.items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card__img img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card__name {
+    padding: 10px;
+}
