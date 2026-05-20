@@ -26,11 +26,7 @@
             <a href="/sell" class="sell-btn">出品</a>
         </div>
     </header>
-
-    <nav>
-        @yield('nav')
-    </nav>
-
+    
     <main>
         @yield('content')
     </main>

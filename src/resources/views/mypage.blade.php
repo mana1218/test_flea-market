@@ -21,22 +21,16 @@
     </div>
 
     <nav class="tab">
-        <a href="/mypage?page=sell" class="sell">
-            出品した商品
-        </a>
-        <a href="/mypage?page=buy" class="buy">
-            購入した商品
-        </a>
+        <a href="/mypage?page=sell" class="sell">出品した商品</a>
+        <a href="/mypage?page=buy" class="buy">購入した商品</a>
     </nav>
 
     <div class="items">
         @foreach ($items as $item)
-            <div class="card">
-                <div class="card__img">
-                    <img src="{{ asset($item->picture) }}" alt="">
-                </div>
-                <p class="card__name">{{ $item->name }}</p>
-            </div>
+        <a href="/item/{{ $item->id }}" class="card">
+            <img src="{{ asset('storage/' . $item->picture) }}" alt="{{ $item->name }}">
+            <p>{{ $item->name }}</p>
+        </a>
         @endforeach
     </div>
 
