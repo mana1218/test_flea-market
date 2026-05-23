@@ -4,14 +4,12 @@
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 @endsection
 
-
+@section('content')
 <nav class="tab">
     <a href="" class="active">おすすめ</a>
     <a href="" class="mylist">マイリスト</a>
 </nav>
 
-
-@section('content')
 <div class="items">
     @foreach ($items as $item)
     <a href="/item/{{ $item->id }}" class="card">

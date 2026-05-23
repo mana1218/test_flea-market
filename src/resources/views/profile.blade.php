@@ -9,7 +9,8 @@
 
     <div class="profile__inner">
         <h2 class="profile__title">プロフィール設定</h2>
-        <form action="" class="profile__form" method="" enctype="multipart/form-data">
+        <form action="/mypage/profile" class="profile__form" method="post" enctype="multipart/form-data">
+            @method('patch')
             @csrf
             <div class="form__image">
                 <img class="profile-image">
@@ -24,17 +25,17 @@
 
             <div class="form__group">
                 <label for="">郵便番号</label>
-                <input type="text" name="postal_code" value="{{ old('postal_code') }}">
+                <input type="text" name="postal_code" value="{{ old('postal_code', $user->postal_code) }}">
             </div>
 
             <div class="form__group">
                 <label for="">住所</label>
-                <input type="text" name="address" value="{{ old('address') }}">
+                <input type="text" name="address" value="{{ old('address', $user->address) }}">
             </div>
 
             <div class="form__group">
                 <label for="">建物名</label>
-                <input type="text" name="building" value="{{ old('building') }}">
+                <input type="text" name="building" value="{{ old('building', $user->building) }}">
             </div>
             
             <button class="update-btn" type="submit">更新する</button>

@@ -16,7 +16,7 @@
             <div class="image-box">
                 <img class="item-image">
                 <label for="picture" class="image-select-button">画像を選択する</label>
-                <input type="file" id="picture" name="picture" accept=".jpeg,.png">
+                <input type="file" id="picture" name="picture" accept=".jpeg,.png" hidden>
             </div>
         </div>
         <h3 class="sub-title">商品の詳細</h3>

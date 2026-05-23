@@ -17,7 +17,7 @@ class ItemController extends Controller
 
     public function show($item_id)
     {
-        $item = Item::withCount(['nices', 'comments'])->findOrFail($item_id);
+        $item = Item::with(['comments.user'])->withCount(['nices', 'comments'])->findOrFail($item_id);
 
         return view('detail', compact('item'));
     }

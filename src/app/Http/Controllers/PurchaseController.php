@@ -38,11 +38,15 @@ class PurchaseController extends Controller
 
     public function edit($item_id)
     {
-        return view('address', compact('item_id'));
+        $item = Item::findOrFail($item_id);
+        $user = auth()->user();
+
+        return view('address', compact('item', 'user'));
     }
 
     public function update(Request $request, $item_id)
     {
+        $item = Item::findOrFail($item_id);
         $user = auth()->user();
 
         $user->update([

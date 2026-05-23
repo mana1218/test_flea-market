@@ -13,6 +13,13 @@ class NiceController extends Controller
             'user_id' => auth()->id(),
             'item_id' => $item_id
         ]);
+
+        Nice::firstOrCreate([
+            'user_id' => auth()->id(),
+            'item_id' => $item_id
+        ]);
+
+        return back();
     }
 
     public function destroy($item_id)
@@ -20,5 +27,7 @@ class NiceController extends Controller
         Nice::where('user_id', auth()->id())
             ->where('item_id', $item_id)
             ->delete();
+
+        return back();
     }
 }

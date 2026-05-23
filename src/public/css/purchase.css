@@ -1,7 +1,7 @@
 .purchase-container {
     display: flex;
     justify-content: space-between;
-    padding: 40px 80px;
+    padding: 60px 80px;
     gap: 60px;
 }
 
@@ -13,6 +13,7 @@
     display: flex;
     gap: 20px;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 .item-image {
@@ -33,19 +34,35 @@
 }
 
 .section {
-    margin: 30px 0;
+    margin-bottom: 30px;
+}
+
+.payment h3 {
+    padding-left: 30px;
 }
 
 .select-box {
     width: 250px;
     padding: 8px;
+    margin-left: 55px;
 }
 
-.change-link {
-    color: blue;
+.shipping-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.change-address {
+    color: #117BD0;
     font-size: 14px;
-    display: inline-block;
-    margin-top: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.shipping-bottom {
+    margin-left: 55px;
 }
 
 .purchase-right {
@@ -53,23 +70,25 @@
 }
 
 .summary-box {
-    border: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;            border-top: 1px solid #ccc;
 }
 
 .summary-row {
     display: flex;
     justify-content: space-between;
     padding: 15px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ccc;
 }
 
 .purchase-btn {
     width: 100%;
     margin-top: 20px;
     padding: 15px;
-    background: #ff5a5a;
+    background: #ff5a5f;
     color: white;
     border: none;
+    border-radius: 3px;
     font-size: 16px;
     cursor: pointer;
 }

@@ -21,15 +21,22 @@ class ProfileController extends Controller
 
     public function edit()
     {
-        return view('profile');
+        $user = auth()->user();
+
+        return view('profile', compact('user'));
     }
 
     public function update(Request $request)
     {
         $user = auth()->user();
 
-        $user->update($request->all());
+        $user->update([
+            'name' => $request->name,
+            'postal_code' => $request->postal_code,
+            'address' => $request->address,
+            'building' => $request->building
+        ]);
 
-        return redirect('/mypage');
+        return redirect('/mypage', compact('user'));
     }
 }

@@ -17,17 +17,17 @@ use App\Http\Controllers\NiceController;
 |
 */
 
-Route::get('/', [ItemController::class, 'index'])->middleware(['auth', 'verified']);
+Route::get('/', [ItemController::class, 'index']);
 Route::get('/item/{item_id}', [ItemController::class, 'show']);
-Route::post('/item/{item_id}/comments', [CommentController::class, 'store']);
-Route::post('/item/{item_id}/nice', [NiceController::class, 'store']);
+Route::post('/item/{item_id}/comment', [CommentController::class, 'store'])->middleware('auth');
+Route::post('/item/{item_id}/nice', [NiceController::class, 'store'])->middleware('auth');
 Route::delete('/item/{item_id}/nice', [NiceController::class, 'destroy']);
-Route::get('/purchase/{item_id}', [PurchaseController::class, 'create']);
+Route::get('/purchase/{item_id}', [PurchaseController::class, 'create'])->middleware('auth');
 Route::post('/purchase/{item_id}', [PurchaseController::class, 'store']);
-Route::get('/purchase/address/{item_id}', [PurchaseController::class, 'edit']);
+Route::get('/purchase/address/{item_id}', [PurchaseController::class, 'edit'])->middleware('auth');
 Route::patch('/purchase/address/{item_id}', [PurchaseController::class, 'update']);
-Route::get('/sell', [ItemController::class, 'create']);
+Route::get('/sell', [ItemController::class, 'create'])->middleware('auth');
 Route::post('/sell', [ItemController::class, 'store']);
-Route::get('/mypage', [ProfileController::class, 'show']);
-Route::get('/mypage/profile', [ProfileController::class, 'edit']);
+Route::get('/mypage', [ProfileController::class, 'show'])->middleware('auth');
+Route::get('/mypage/profile', [ProfileController::class, 'edit'])->middleware('auth');
 Route::patch('/mypage/profile', [ProfileController::class, 'update']);
