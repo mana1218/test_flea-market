@@ -24,6 +24,7 @@ Route::post('/item/{item_id}/nice', [NiceController::class, 'store'])->middlewar
 Route::delete('/item/{item_id}/nice', [NiceController::class, 'destroy']);
 Route::get('/purchase/{item_id}', [PurchaseController::class, 'create'])->middleware('auth');
 Route::post('/purchase/{item_id}', [PurchaseController::class, 'store']);
+Route::get('/purchase/success/{item_id}', [PurchaseController::class, 'success'])->middleware('auth');
 Route::get('/purchase/address/{item_id}', [PurchaseController::class, 'edit'])->middleware('auth');
 Route::patch('/purchase/address/{item_id}', [PurchaseController::class, 'update']);
 Route::get('/sell', [ItemController::class, 'create'])->middleware('auth');

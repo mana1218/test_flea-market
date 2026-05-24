@@ -33,7 +33,7 @@
                     </div>
                     <div class="form__group">
                         <label>メールアドレス</label>
-                        <input type="email" name="email" value="{{ old('email') }}">
+                        <input type="email" name="email" value="{ old('email') }}">
                     </div>
                     <div class="form__group">
                         <label>パスワード</label>
@@ -45,7 +45,7 @@
                     </div>
                     <button type="submit" class="register-btn">登録する</button>
                 </form>
-                <a href="/login" class="login-btn">ログインはこちら</a>
+                <a href="/login" class="login-btn">ログインはこちら</a>{
             </div>
         </div>
     </main>

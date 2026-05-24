@@ -19,7 +19,9 @@
                 <input type="file" id="picture" name="picture" accept=".jpeg,.png" hidden>
             </div>
         </div>
+
         <h3 class="sub-title">商品の詳細</h3>
+
         <div class="form-group">
             <label>カテゴリー</label>
             <div class="categories">

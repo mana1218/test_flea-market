@@ -9,7 +9,7 @@
 
     <div class="profile">
         <div class="profile__left">
-            <div class="profile__img"></div>
+            <img src="{{ asset('storage/' . auth()->user()->picture) }}" class="profile__img">
             <div class="profile__name">
                 {{ auth()->user()->name }}
             </div>

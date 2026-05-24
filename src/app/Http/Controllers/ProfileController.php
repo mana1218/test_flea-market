@@ -30,13 +30,21 @@ class ProfileController extends Controller
     {
         $user = auth()->user();
 
-        $user->update([
+        $data = [
             'name' => $request->name,
             'postal_code' => $request->postal_code,
             'address' => $request->address,
             'building' => $request->building
-        ]);
+        ];
 
-        return redirect('/mypage', compact('user'));
+        if ($request->hasFile('picture')) {
+            $path = $request->file('picture')->store('profile_image', 'public');
+
+            $data['picture'] = $path;
+        }
+        
+        $user->update($data);
+        
+        return redirect('/mypage');
     }
 }

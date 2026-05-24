@@ -61,7 +61,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Nice::class);
     }
 
-    public function purchase()
+    public function purchases()
     {
         return $this->hasMany(Purchase::class);
     }

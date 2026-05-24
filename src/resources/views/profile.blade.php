@@ -9,6 +9,7 @@
 
     <div class="profile__inner">
         <h2 class="profile__title">プロフィール設定</h2>
+        
         <form action="/mypage/profile" class="profile__form" method="post" enctype="multipart/form-data">
             @method('patch')
             @csrf
@@ -20,7 +21,7 @@
 
             <div class="form__group">
                 <label for="">ユーザー名</label>
-                <input type="text" name="name" value="{{ old('name') }}">
+                <input type="text" name="name" value="{{ old('name', $user->name) }}">
             </div>
 
             <div class="form__group">
