@@ -68,6 +68,11 @@ button {
     background: #fff;
 }
 
+.sold-btn {
+    background: #999;
+    cursor: not-allowed;
+}
+
 .purchase-btn {
     display: block;
 

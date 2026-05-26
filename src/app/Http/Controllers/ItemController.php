@@ -11,8 +11,20 @@ class ItemController extends Controller
 {
     public function index(Request $request)
     {
-        $items = Item::all();
+        if ($request->page === 'mylist') {
+
+            $items = Item::whereHas('nices', function ($query) {
+                $query->where('user_id', auth()->id());
+            })->get();
+
+        } else {
+
+            //$items = Item::where('user_id', '!=', auth()->id())->get();
+            $items=Item::all();
+        }
+
         return view('index', compact('items'));
+
     }
 
     public function show($item_id)

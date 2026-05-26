@@ -48,7 +48,12 @@
                 <p>{{ $item->comments_count }}</p>
             </div>
         </div>
-        <a href="/purchase/{{ $item->id }}" class="purchase-btn">購入手続きへ</a>
+        @if ($item->sold)
+            <button class="purchase-btn sold-btn" disabled>売り切れました</button>
+        @else
+            <a href="/purchase/{{ $item->id }}"
+       class="purchase-btn">購入手続きへ</a>
+        @endif
 
         <h2>商品説明</h2>
 

@@ -20,11 +20,6 @@
         <div class="register">
             <div class="register__inner">
                 <h2 class="register__title">会員登録</h2>
-                @if ($errors->any())
-                    @foreach ($errors->all() as $error)
-                        <p>{{ $error }}</p>
-                    @endforeach
-                @endif
                 <form method="post" action="/register" class="register__form">
                 @csrf
                     <div class="form__group">
@@ -33,7 +28,7 @@
                     </div>
                     <div class="form__group">
                         <label>メールアドレス</label>
-                        <input type="email" name="email" value="{ old('email') }}">
+                        <input type="email" name="email" value="{{ old('email') }}">
                     </div>
                     <div class="form__group">
                         <label>パスワード</label>
@@ -45,7 +40,7 @@
                     </div>
                     <button type="submit" class="register-btn">登録する</button>
                 </form>
-                <a href="/login" class="login-btn">ログインはこちら</a>{
+                <a href="/login" class="login-btn">ログインはこちら</a>
             </div>
         </div>
     </main>
