@@ -5,26 +5,41 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\Condition;
 use App\Models\Category;
+use App\Http\Requests\ExhibitionRequest;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
     public function index(Request $request)
     {
-        if ($request->page === 'mylist') {
+        if ($request->tab === 'mylist') {
+            $items = Item::query();
 
-            $items = Item::whereHas('nices', function ($query) {
-                $query->where('user_id', auth()->id());
-            })->get();
+            if (auth()->check() && auth()->user()->hasVerifiedEmail()) {
+                $items->whereHas('nices', function ($query) {
+                    $query->where('user_id', auth()->id());
+                });
+            } else {
+                $items->whereRaw('0 = 1');
+            }
+
+            $items = $items->get();
 
         } else {
+            $items = Item::query();
 
-            //$items = Item::where('user_id', '!=', auth()->id())->get();
-            $items=Item::all();
+            if (auth()->check()) {
+                if (!auth()->user()->hasVerifiedEmail()) {
+                    return redirect('/email/verify');
+                }
+                
+                $items->where('user_id', '!=', auth()->id());
+            }
+
+            $items = $items->get();
         }
 
         return view('index', compact('items'));
-
     }
 
     public function show($item_id)
@@ -42,7 +57,7 @@ class ItemController extends Controller
         return view('sell', compact('conditions', 'categories'));
     }
 
-    public function store(Request $request)
+    public function store(ExhibitionRequest $request)
     {
         $path = $request->file('picture')->store('images', 'public');
 

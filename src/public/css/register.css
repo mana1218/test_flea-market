@@ -63,3 +63,7 @@
     color: #007bff;
     text-decoration: none;
 }
+
+.error {
+    color: #f00;
+}

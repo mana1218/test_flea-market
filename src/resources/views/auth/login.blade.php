@@ -20,15 +20,27 @@
         <div class="login">
             <div class="login__inner">
                 <h2 class="login__title">ログイン</h2>
-                <form method="post" action="/login" class="login__form">
+                <form method="post" action="{{ url('/login') }}" class="login__form">
                 @csrf
                     <div class="form__group">
                         <label>メールアドレス</label>
                         <input type="email" name="email" value="{{ old('email') }}">
+
+                        <div class="error">
+                            @error('email')
+                                <p>{{ $message }}</p>
+                            @enderror
+                        </div>
                     </div>
                     <div class="form__group">
                         <label>パスワード</label>
                         <input type="password" name="password">
+
+                        <div class="error">
+                            @error('password')
+                                <p>{{ $message }}</p>
+                            @enderror
+                        </div>
                     </div>
                     <button type="submit" class="login-btn">ログインする</button>
                 </form>

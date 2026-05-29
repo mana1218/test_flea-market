@@ -6,8 +6,8 @@
 
 @section('content')
 <nav class="tab">
-    <a href="/" class="active">おすすめ</a>
-    <a href="/?tab=mylist" class="mylist">マイリスト</a>
+    <a href="/" class="{{ request('tab') !== 'mylist' ? 'active' : 'mylist' }}">おすすめ</a>
+    <a href="/?tab=mylist" class="{{ request('tab') === 'mylist' ? 'active' : 'mylist' }}">マイリスト</a>
 </nav>
 
 <div class="items">

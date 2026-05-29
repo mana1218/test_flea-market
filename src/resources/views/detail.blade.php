@@ -83,7 +83,9 @@
 
         @foreach ($item->comments as $comment)
             <div class="comment-user">
-                <div class="user-icon"></div>
+                <div class="user-icon">
+                    <img src="{{ asset('storage/' . $comment->user->picture) }}" class="user__img">
+                </div>
                 <p>{{ $comment->user->name }}</p>
             </div>
             <div class="comment">{{ $comment->comment }}</div>
@@ -95,6 +97,13 @@
                 商品へのコメント
             </label>
             <textarea name="comment">{{ old('comment') }}</textarea>
+
+            <div class="error">
+                    @error('comment')
+                        <p>{{ $message }}</p>
+                    @enderror
+            </div>
+
             <button class="comment-btn">
                 コメントを送信する
             </button>

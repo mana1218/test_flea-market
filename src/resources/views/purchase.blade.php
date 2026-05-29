@@ -31,6 +31,12 @@
                         <option value="card">カード支払い</option>
                     </select>
                 </div>
+
+                <div class="error">
+                    @error('payment_method')
+                        <p>{{ $message }}</p>
+                    @enderror
+                </div>
             </div>
 
             <hr>

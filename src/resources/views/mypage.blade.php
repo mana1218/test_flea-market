@@ -9,7 +9,9 @@
 
     <div class="profile">
         <div class="profile__left">
-            <img src="{{ asset('storage/' . auth()->user()->picture) }}" class="profile__img">
+            <div class="profile__icon">
+                <img src="{{ asset('storage/' . auth()->user()->picture) }}" class="profile__img">
+            </div>
             <div class="profile__name">
                 {{ auth()->user()->name }}
             </div>
@@ -20,9 +22,9 @@
         </a>
     </div>
 
-    <nav class="tab">
-        <a href="/mypage?page=sell" class="sell">出品した商品</a>
-        <a href="/mypage?page=buy" class="buy">購入した商品</a>
+    <nav class="page">
+        <a href="/mypage?page=sell" class="{{ request('page') !== 'buy' ? 'sell' : 'buy' }}">出品した商品</a>
+        <a href="/mypage?page=buy" class="{{ request('page') === 'buy' ? 'sell' : 'buy' }}">購入した商品</a>
     </nav>
 
     <div class="items">

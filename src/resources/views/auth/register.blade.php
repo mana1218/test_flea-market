@@ -25,18 +25,38 @@
                     <div class="form__group">
                         <label>ユーザー名</label>
                         <input type="text" name="name" value="{{ old('name') }}">
+                        <div class="error">
+                            @error('name')
+                                <p>{{ $message }}</p>
+                            @enderror
+                        </div>
                     </div>
                     <div class="form__group">
                         <label>メールアドレス</label>
                         <input type="email" name="email" value="{{ old('email') }}">
+                        <div class="error">
+                            @error('email')
+                                <p>{{ $message }}</p>
+                            @enderror
+                        </div>
                     </div>
                     <div class="form__group">
                         <label>パスワード</label>
                         <input type="password" name="password">
+                        <div class="error">
+                            @error('password')
+                                <p>{{ $message }}</p>
+                            @enderror
+                        </div>
                     </div>
                     <div class="form__group">
                         <label>確認用パスワード</label>
                         <input type="password" name="password_confirmation">
+                        <div class="error">
+                            @error('password_confirmation')
+                                <p>{{ $message }}</p>
+                            @enderror
+                        </div>
                     </div>
                     <button type="submit" class="register-btn">登録する</button>
                 </form>

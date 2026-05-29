@@ -13,6 +13,8 @@
         <form action="/mypage/profile" class="profile__form" method="post" enctype="multipart/form-data">
             @method('patch')
             @csrf
+            <input type="hidden" name="from" value="{{ request('from') }}">
+            
             <div class="form__image">
                 <img class="profile-image">
                 <label for="picture" class="image-select-button">画像を選択する</label>
@@ -22,16 +24,34 @@
             <div class="form__group">
                 <label for="">ユーザー名</label>
                 <input type="text" name="name" value="{{ old('name', $user->name) }}">
+
+                <div class="error">
+                    @error('name')
+                        <p>{{ $message }}</p>
+                    @enderror
+                </div>
             </div>
 
             <div class="form__group">
                 <label for="">郵便番号</label>
                 <input type="text" name="postal_code" value="{{ old('postal_code', $user->postal_code) }}">
+
+                <div class="error">
+                    @error('postal_code')
+                        <p>{{ $message }}</p>
+                    @enderror
+                </div>
             </div>
 
             <div class="form__group">
                 <label for="">住所</label>
                 <input type="text" name="address" value="{{ old('address', $user->address) }}">
+
+                <div class="error">
+                    @error('address')
+                        <p>{{ $message }}</p>
+                    @enderror
+                </div>
             </div>
 
             <div class="form__group">

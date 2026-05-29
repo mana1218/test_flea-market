@@ -17,6 +17,13 @@
     gap: 70px;
 }
 
+.user-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #d9d9d9;
+}
+
 .profile__img {
     width: 80px;
     height: 80px;
@@ -43,7 +50,7 @@
     transition: 0.2s;
 }
 
-.tab {
+.page {
     display: flex;
     gap: 30px;
     padding: 30px 90px 2px;
@@ -89,4 +96,8 @@
 .card p {
     margin-top: 8px;
     font-size: 18px;
+}
+
+.error {
+    color: #f00;
 }

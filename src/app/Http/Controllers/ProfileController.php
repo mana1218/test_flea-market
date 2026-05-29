@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileRequest;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -26,7 +27,7 @@ class ProfileController extends Controller
         return view('profile', compact('user'));
     }
 
-    public function update(Request $request)
+    public function update(ProfileRequest $request)
     {
         $user = auth()->user();
 
@@ -45,6 +46,10 @@ class ProfileController extends Controller
         
         $user->update($data);
         
+        if ($request->from === 'verify') {
+            return redirect('/');
+        }
+
         return redirect('/mypage');
     }
 }

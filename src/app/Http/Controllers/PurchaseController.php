@@ -6,6 +6,8 @@ use Stripe\Stripe;
 use Stripe\Checkout\Session;
 use App\Models\Purchase;
 use App\Models\Item;
+use App\Http\Requests\PurchaseRequest;
+use App\Http\Requests\AddressRequest;
 use Illuminate\Http\Request;
 
 class PurchaseController extends Controller
@@ -18,35 +20,48 @@ class PurchaseController extends Controller
         return view('purchase', compact('item','address'));
     }
 
-    public function store(Request $request, $item_id)
+    public function store(PurchaseRequest $request, $item_id)
     {
         $item = Item::findOrFail($item_id);
 
-        Stripe::setApiKey(config('services.stripe.secret'));
+        if ($request->payment_method === 'card') {
 
-        $session = Session::create([
-            'payment_method_types' => ['card'],
-            'line_items' => [[
-                'price_data' => [
-                    'currency' => 'jpy',
-                    'product_data' => [
-                        'name' => $item->name,
+            Stripe::setApiKey(config('services.stripe.secret'));
+
+            $session = Session::create([
+                'payment_method_types' => ['card'],
+                'line_items' => [[
+                    'price_data' => [
+                        'currency' => 'jpy',
+                        'product_data' => [
+                            'name' => $item->name,
+                        ],
+                        'unit_amount' => $item->price,
                     ],
-                    'unit_amount' => $item->price,
-                ],
-                'quantity' => 1,
-            ]],
-            'mode' => 'payment',
-            'metadata' => [
-                'payment_method' => $request->payment_method,
-            ],
+                    'quantity' => 1,
+                ]],
+                'mode' => 'payment',
+                'success_url' => url('/purchase/success/' . $item->id),
+                'cancel_url' => url('/purchase/' . $item->id),
+            ]);
 
-            'success_url' => url('/purchase/success/' . $item->id),
+            return redirect()->away($session->url);
+        }
 
-        'cancel_url' => url('/purchase/' . $item->id),
-    ]);
+        if ($request->payment_method === 'convenience') {
 
-        return redirect()->away($session->url);
+            Purchase::create([
+                'user_id' => auth()->id(),
+                'item_id' => $item_id,
+                'payment_method' => 'convenience'
+            ]);
+
+            $item->update(['sold' => true]);
+
+            return redirect('/');
+        }
+
+        abort(400, '不正な支払い方法です');
     }
 
     public function success($item_id)
@@ -78,7 +93,7 @@ class PurchaseController extends Controller
         return view('address', compact('item', 'user'));
     }
 
-    public function update(Request $request, $item_id)
+    public function update(AddressRequest $request, $item_id)
     {
         $item = Item::findOrFail($item_id);
         $user = auth()->user();
