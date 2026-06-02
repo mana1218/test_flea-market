@@ -49,7 +49,7 @@
             </div>
         </div>
         @if ($item->sold)
-            <button class="purchase-btn sold-btn" disabled>売り切れました</button>
+            <button class="purchase-btn" disabled>売り切れ</button>
         @else
             <a href="/purchase/{{ $item->id }}"
        class="purchase-btn">購入手続きへ</a>

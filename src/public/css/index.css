@@ -27,21 +27,6 @@
     margin: 35px;
 }
 
-.sold-label {
-    position: absolute;
-    top: 15px;
-    left: -35px;
-    width: 120px;
-    text-align: center;
-    background: #ff5a5f;
-    color: white;
-    font-weight: bold;
-    transform: rotate(-45deg);
-    z-index: 10;
-    padding: 5px 0;
-    font-size: 14px;
-}
-
 .card {
     width: 200px;
     margin: 10px;
@@ -49,11 +34,29 @@
     color: inherit;
 }
 
+.card-wrapper {
+    position: relative;
+}
+
 .card img {
     width: 200px;
     height: 200px;
     object-fit: cover;
     cursor: pointer;
+}
+
+.sold-label {
+    position: absolute;
+    top: 80px;
+    left: 40px;
+    width: 60%;
+    text-align: center;
+    background: #f00;
+    color: white;
+    font-weight: bold;
+    transform: rotate(-45deg);
+    z-index: 10;
+    padding: 5px 0;
 }
 
 .card p {

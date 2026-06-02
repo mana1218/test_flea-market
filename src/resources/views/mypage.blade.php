@@ -29,10 +29,17 @@
 
     <div class="items">
         @foreach ($items as $item)
-        <a href="/item/{{ $item->id }}" class="card">
-            <img src="{{ asset('storage/' . $item->picture) }}" alt="{{ $item->name }}">
-            <p>{{ $item->name }}</p>
-        </a>
+            <a href="/item/{{ $item->id }}" class="card">
+
+                <div class="card-wrapper">
+                    <img src="{{ asset('storage/' . $item->picture) }}" alt="{{ $item->name }}">
+                    @if ($item->sold)
+                        <div class="sold-label">SOLD</div>
+                    @endif
+                </div>
+                <p>{{ $item->name }}</p>
+        
+            </a>
         @endforeach
     </div>
 

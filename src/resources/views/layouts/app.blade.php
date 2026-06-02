@@ -14,9 +14,13 @@
         <div class="header__inner">
             <img src="{{ asset('images/COACHTECH.png') }}" alt="coachtech" class="header-logo">
         </div>
+
         <div class="header-search">
-            <input type="text" placeholder="なにをお探しですか？">
+            <form action="/" class="search-form" method="get">
+                <input type="text" class="search-item" name="keyword" value="{{ request('keyword') }}" placeholder="何をお探しですか？">
+            </form>
         </div>
+
         <div class="header-btn">
             <form action="/logout" method="post">
             @csrf

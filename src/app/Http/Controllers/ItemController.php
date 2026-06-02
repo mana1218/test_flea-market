@@ -13,7 +13,8 @@ class ItemController extends Controller
     public function index(Request $request)
     {
         if ($request->tab === 'mylist') {
-            $items = Item::query();
+            $items = Item::query()
+                ->keywordSearch($request->keyword);
 
             if (auth()->check() && auth()->user()->hasVerifiedEmail()) {
                 $items->whereHas('nices', function ($query) {
@@ -26,7 +27,8 @@ class ItemController extends Controller
             $items = $items->get();
 
         } else {
-            $items = Item::query();
+            $items = Item::query()
+                ->keywordSearch($request->keyword);
 
             if (auth()->check()) {
                 if (!auth()->user()->hasVerifiedEmail()) {

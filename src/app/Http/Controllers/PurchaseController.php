@@ -24,6 +24,10 @@ class PurchaseController extends Controller
     {
         $item = Item::findOrFail($item_id);
 
+        if ($item->sold) {
+            abort(400, '売り切れです');
+        }
+
         if ($request->payment_method === 'card') {
 
             Stripe::setApiKey(config('services.stripe.secret'));
